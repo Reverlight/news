@@ -11,6 +11,10 @@ class NewsPost(models.Model):
     def __str__(self):
         return self.title
 
+    def upvote_post(self):
+        self.upvote_amount += 1
+        self.save()
+
 
 class Comment(models.Model):
     post = models.ForeignKey(NewsPost, on_delete=models.CASCADE)

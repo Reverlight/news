@@ -1,7 +1,7 @@
 from django.urls import path, include
 from rest_framework import routers
 
-from .views import NewsPostViewSet, CommentViewSet
+from .views import NewsPostViewSet, CommentViewSet, NewsPostUpvote
 
 
 router = routers.DefaultRouter()
@@ -11,4 +11,5 @@ router.register('comment', CommentViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
+    path('upvote/<int:pk>/', NewsPostUpvote.as_view())
 ]
