@@ -4,7 +4,7 @@ from rest_framework import routers
 from .views import NewsPostViewSet, CommentViewSet
 
 
-router = routers.SimpleRouter()
+router = routers.DefaultRouter()
 router.register('newspost', NewsPostViewSet)
 router.register('comment', CommentViewSet)
 
