@@ -7,3 +7,16 @@ class NewsPost(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     upvote_amount = models.IntegerField(blank=True, default=0)
     author_name = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.title
+
+
+class Comment(models.Model):
+    post = models.ForeignKey(NewsPost, on_delete=models.CASCADE)
+    author_name = models.CharField(max_length=255)
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.author_name
