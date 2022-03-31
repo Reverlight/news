@@ -1,11 +1,14 @@
 from django.urls import path, include
 from rest_framework import routers
 
-from .views import NewsPostViewSet
+from .views import NewsPostViewSet, CommentViewSet
+
 
 router = routers.SimpleRouter()
 router.register('newspost', NewsPostViewSet)
+router.register('comment', CommentViewSet)
+
 
 urlpatterns = [
-    path('', include(router.urls))
+    path('', include(router.urls)),
 ]
